@@ -1,7 +1,9 @@
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div>
-      <h1>E-Commerce State Management</h1>
+    <div style={{ padding: "2rem" }}>
+      <Home />
     </div>
   );
 }
