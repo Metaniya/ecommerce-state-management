@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Home from "./pages/Home";
+import Cart from "./components/Cart";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -22,9 +23,42 @@ function App() {
     });
   };
 
+  const increaseQuantity = (id) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (id) => {
+    setCart((prevCart) =>
+      prevCart
+        .map((item) =>
+          item.id === id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  };
+
+  const removeFromCart = (id) => {
+    setCart((prevCart) =>
+      prevCart.filter((item) => item.id !== id)
+    );
+  };
+
   return (
     <div style={{ padding: "2rem" }}>
-      <h1>Cart Items: {cart.length}</h1>
+      <Cart
+        cart={cart}
+        increaseQuantity={increaseQuantity}
+        decreaseQuantity={decreaseQuantity}
+        removeFromCart={removeFromCart}
+      />
 
       <Home addToCart={addToCart} />
     </div>
