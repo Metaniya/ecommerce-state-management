@@ -1,4 +1,10 @@
-function ProductCard({ product, addToCart }) {
+import useCartStore from "../zustand/cartStore";
+
+function ProductCard({ product }) {
+  const addToCart = useCartStore(
+    (state) => state.addToCart
+  );
+
   return (
     <div
       style={{
