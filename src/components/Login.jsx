@@ -1,16 +1,30 @@
 import { useState } from "react";
-import useAuthStore from "../zustand/authStore";
+
+import {
+  useDispatch,
+  useSelector,
+} from "react-redux";
+
+import {
+  login,
+  logout,
+} from "../redux/authSlice";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] =
+    useState("");
 
- const { user, login, logout } =
-  useAuthStore();
+  const dispatch = useDispatch();
+
+  const user = useSelector(
+    (state) => state.auth.user
+  );
 
   const handleLogin = () => {
     if (!username.trim()) return;
 
-    login(username);
+    dispatch(login(username));
+
     setUsername("");
   };
 
@@ -24,7 +38,11 @@ function Login() {
             Welcome, {user.name}
           </p>
 
-          <button onClick={logout}>
+          <button
+            onClick={() =>
+              dispatch(logout())
+            }
+          >
             Logout
           </button>
         </>

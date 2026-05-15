@@ -1,12 +1,20 @@
-import useCartStore from "../zustand/cartStore";
+import {
+  useDispatch,
+  useSelector,
+} from "react-redux";
+
+import {
+  increaseQuantity,
+  decreaseQuantity,
+  removeFromCart,
+} from "../redux/cartSlice";
 
 function Cart() {
-  const {
-    cart,
-    increaseQuantity,
-    decreaseQuantity,
-    removeFromCart,
-  } = useCartStore();
+  const dispatch = useDispatch();
+
+  const cart = useSelector(
+    (state) => state.cart.cart
+  );
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -36,7 +44,9 @@ function Cart() {
 
               <button
                 onClick={() =>
-                  increaseQuantity(item.id)
+                  dispatch(
+                    increaseQuantity(item.id)
+                  )
                 }
               >
                 +
@@ -44,7 +54,9 @@ function Cart() {
 
               <button
                 onClick={() =>
-                  decreaseQuantity(item.id)
+                  dispatch(
+                    decreaseQuantity(item.id)
+                  )
                 }
               >
                 -
@@ -52,7 +64,9 @@ function Cart() {
 
               <button
                 onClick={() =>
-                  removeFromCart(item.id)
+                  dispatch(
+                    removeFromCart(item.id)
+                  )
                 }
               >
                 Remove

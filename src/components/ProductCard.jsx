@@ -1,8 +1,9 @@
-import useCartStore from "../zustand/cartStore";
+import { useDispatch } from "react-redux";
+
+import { addToCart } from "../redux/cartSlice";
 
 function ProductCard({ product }) {
-  const { addToCart } = useCartStore();
-  
+  const dispatch = useDispatch();
 
   return (
     <div className="card">
@@ -15,7 +16,11 @@ function ProductCard({ product }) {
 
       <p>${product.price}</p>
 
-      <button onClick={() => addToCart(product)}>
+      <button
+        onClick={() =>
+          dispatch(addToCart(product))
+        }
+      >
         Add to Cart
       </button>
     </div>
