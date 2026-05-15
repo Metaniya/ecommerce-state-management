@@ -21,21 +21,19 @@ function Cart() {
   );
 
   return (
-    <div style={{ marginBottom: "2rem" }}>
+    <div className="section">
       <h2>Shopping Cart</h2>
 
       {cart.length === 0 ? (
-        <p>Cart is empty</p>
+        <p style={{ marginTop: "1rem" }}>
+          Cart is empty
+        </p>
       ) : (
         <>
           {cart.map((item) => (
             <div
               key={item.id}
-              style={{
-                border: "1px solid gray",
-                padding: "1rem",
-                marginBottom: "1rem",
-              }}
+              className="cart-item"
             >
               <h3>{item.name}</h3>
 
@@ -43,21 +41,35 @@ function Cart() {
 
               <p>Quantity: {item.quantity}</p>
 
-              <button onClick={() => increaseQuantity(item.id)}>
+              <button
+                onClick={() =>
+                  increaseQuantity(item.id)
+                }
+              >
                 +
               </button>
 
-              <button onClick={() => decreaseQuantity(item.id)}>
+              <button
+                onClick={() =>
+                  decreaseQuantity(item.id)
+                }
+              >
                 -
               </button>
 
-              <button onClick={() => removeFromCart(item.id)}>
+              <button
+                onClick={() =>
+                  removeFromCart(item.id)
+                }
+              >
                 Remove
               </button>
             </div>
           ))}
 
-          <h3>Total: ${totalPrice}</h3>
+          <h3 style={{ marginTop: "1rem" }}>
+            Total: ${totalPrice}
+          </h3>
         </>
       )}
     </div>

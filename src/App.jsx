@@ -1,9 +1,11 @@
 import Cart from "./components/Cart";
+import Login from "./components/Login";
 import Home from "./pages/Home";
 
 function App() {
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="app">
+      <Login />
       <Cart />
       <Home />
     </div>

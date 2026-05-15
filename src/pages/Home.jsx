@@ -3,16 +3,12 @@ import ProductCard from "../components/ProductCard";
 
 function Home() {
   return (
-    <div>
-      <h1>Products</h1>
+    <div className="section">
+      <h1 style={{ marginBottom: "1rem" }}>
+        Products
+      </h1>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-          flexWrap: "wrap",
-        }}
-      >
+      <div className="products-grid">
         {products.map((product) => (
           <ProductCard
             key={product.id}

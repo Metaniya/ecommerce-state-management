@@ -6,15 +6,11 @@ function ProductCard({ product }) {
   );
 
   return (
-    <div
-      style={{
-        border: "1px solid gray",
-        padding: "1rem",
-        borderRadius: "10px",
-        width: "220px",
-      }}
-    >
-      <img src={product.image} alt={product.name} width="200" />
+    <div className="card">
+      <img
+        src={product.image}
+        alt={product.name}
+      />
 
       <h3>{product.name}</h3>
 
