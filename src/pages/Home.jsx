@@ -1,7 +1,7 @@
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
 
-function Home() {
+function Home({ addToCart }) {
   return (
     <div>
       <h1>Products</h1>
@@ -14,7 +14,11 @@ function Home() {
         }}
       >
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
+          />
         ))}
       </div>
     </div>

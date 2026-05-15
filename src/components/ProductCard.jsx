@@ -1,4 +1,4 @@
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart }) {
   return (
     <div
       style={{
@@ -14,7 +14,9 @@ function ProductCard({ product }) {
 
       <p>${product.price}</p>
 
-      <button>Add to Cart</button>
+      <button onClick={() => addToCart(product)}>
+        Add to Cart
+      </button>
     </div>
   );
 }
