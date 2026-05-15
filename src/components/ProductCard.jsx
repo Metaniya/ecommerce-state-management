@@ -1,9 +1,8 @@
 import useCartStore from "../zustand/cartStore";
 
 function ProductCard({ product }) {
-  const addToCart = useCartStore(
-    (state) => state.addToCart
-  );
+  const { addToCart } = useCartStore();
+  
 
   return (
     <div className="card">

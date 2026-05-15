@@ -4,11 +4,8 @@ import useAuthStore from "../zustand/authStore";
 function Login() {
   const [username, setUsername] = useState("");
 
-  const user = useAuthStore((state) => state.user);
-
-  const login = useAuthStore((state) => state.login);
-
-  const logout = useAuthStore((state) => state.logout);
+ const { user, login, logout } =
+  useAuthStore();
 
   const handleLogin = () => {
     if (!username.trim()) return;

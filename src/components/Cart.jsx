@@ -1,19 +1,12 @@
 import useCartStore from "../zustand/cartStore";
 
 function Cart() {
-  const cart = useCartStore((state) => state.cart);
-
-  const increaseQuantity = useCartStore(
-    (state) => state.increaseQuantity
-  );
-
-  const decreaseQuantity = useCartStore(
-    (state) => state.decreaseQuantity
-  );
-
-  const removeFromCart = useCartStore(
-    (state) => state.removeFromCart
-  );
+  const {
+    cart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+  } = useCartStore();
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,

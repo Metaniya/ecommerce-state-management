@@ -1,16 +1,51 @@
-# React + Vite
+# E-Commerce State Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React e-commerce application demonstrating global state management using Zustand.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Product listing
+- Shopping cart functionality
+- Add/remove items
+- Quantity management
+- Persisted cart state
+- Mock authentication system
+- Persisted login session
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Zustand
+- Zustand Persist Middleware
+- Vite
 
-## Expanding the ESLint configuration
+## Zustand Features Demonstrated
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Global state management
+- Store creation
+- Actions
+- Selectors
+- Persist middleware
+- Auth patterns
+- Cart patterns
+
+## Project Structure
+
+```bash
+src/
+├── components/
+├── data/
+├── pages/
+├── zustand/
+```
+
+## Installation
+
+```bash
+npm install
+npm run dev
+```
+
+## Author
+
+Metaniya Shiferaw
